@@ -10,7 +10,7 @@ A dark theme for Twitter Bootstrap 2.
 * Place it in your stylesheet directory
 * Include it after you load `bootstrap.css`
 
-    <link href="path/to/darkstrap.css" rel="stylesheet" type="text/css" />
+    `<link href="path/to/darkstrap.css" rel="stylesheet" type="text/css" />`
 
 
 
