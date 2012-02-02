@@ -1,0 +1,21 @@
+
+@mixin inset-panel-dark {
+  @include box-shadow(rgba(#fff, .1) 0 1px 0, rgba(#000, .8) 0 1px 7px 0px inset); 
+  background: darken(#2f2f2f, 6); 
+  background-color: rgba(#000, .3);
+}
+@mixin horizontal-rule-dark {
+  @include box-shadow(rgba(#fff, .07) 0 1px 0);
+border-bottom: 1px solid #121212; }
+
+@mixin horizontal-rule-top-dark {
+  @include box-shadow(rgba(#fff, .07) 0 1px 0 inset);
+border-top: 1px solid #121212; }
+
+@mixin vertical-rule-dark {
+  @include box-shadow(rgba(#fff, .07) 1px 0 0);
+border-right: 1px solid #121212; }
+
+@mixin vertical-rule-left-dark {
+  @include box-shadow(rgba(#fff, .07) 1px 0 0 inset);
+border-left: 1px solid #121212; }

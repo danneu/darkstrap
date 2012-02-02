@@ -1,0 +1,126 @@
+@import "compass";
+@import "mixins";
+
+$color: #c6c6c6;
+$bg: #2f2f2f;
+
+$warning: #faa732;
+$success: #5bb75b;
+$error: #FB292D;
+
+.control-group.warning > label, 
+.control-group.warning .help-block,
+.control-group.warning .help-inline { color: $warning; }
+.control-group.success > label, 
+.control-group.success .help-block,
+.control-group.success .help-inline { color: $success; }
+.control-group.error > label, 
+.control-group.error .help-block,
+.control-group.error .help-inline { color: $error; }
+
+.control-group.warning input, 
+.control-group.warning select, 
+.control-group.warning textarea {
+  border-color: $warning;
+  color: $warning; }
+.control-group.success input, 
+.control-group.success select, 
+.control-group.success textarea {
+  border-color: $success;
+  color: $success; }
+.control-group.error input, 
+.control-group.error select, 
+.control-group.error textarea {
+  border-color: $error;
+  color: $error; }
+
+
+body {
+  background: $bg;
+  color: $color;
+}
+.breadcrumb {
+  @include inset-panel-dark;
+  border: 0; //over bs
+  li {
+    text-shadow: 0 1px 0 #000; //over bs
+  }
+}
+.page-header {
+  @include horizontal-rule-dark;
+}
+h1,h2,h3,h4,h5,h6 {
+  color: white;
+}
+h6 { color: #999; }
+
+blockquote {
+  border-left-color: #111;
+  &.pull-right {
+    border-right-color: #111;
+  }
+}
+
+hr {
+  @include horizontal-rule-dark;
+  border-top: none;
+}
+
+.well {
+  @include inset-panel-dark;
+ 
+}
+
+code {
+  @include inset-panel-dark;
+  border: none; //over bs
+}
+pre {
+  @include inset-panel-dark;
+  border: none; //over bs
+  color: $color;
+}
+
+form {
+  label {
+    color: $color;
+  }
+}
+legend {
+  color: white;
+  @include horizontal-rule-dark;
+}
+.form-actions {
+  border-top-color: #222;
+  background-color: #444;
+}
+
+.help-inline {
+  color: #999;
+}
+
+.table {
+  td {
+    border-top-color: #666;
+  }
+}
+  .table-striped tbody tr:nth-child(2n+1) td, 
+  .table-striped tbody tr:nth-child(2n+1) th {
+      background-color: #444;
+  }
+
+  .table-bordered {
+    border: 1px solid #666;
+  }
+  .table-bordered th + th, 
+  .table-bordered td + td,
+  .table-bordered th + td,
+  .table-bordered td + th {
+    border-left: 1px solid #666;
+  }
+
+footer {
+  @include horizontal-rule-top-dark;
+  margin-top: 50px;
+  padding: 10px;
+}
