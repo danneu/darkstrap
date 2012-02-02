@@ -140,7 +140,7 @@ form label {
   color: #c6c6c6;
 }
 
-/* line 89, ../sass/darkstrap.scss */
+/* line 90, ../sass/darkstrap.scss */
 legend {
   color: white;
   -moz-box-shadow: rgba(255, 255, 255, 0.07) 0 1px 0;
@@ -150,34 +150,38 @@ legend {
   border-bottom: 1px solid #121212;
 }
 
-/* line 93, ../sass/darkstrap.scss */
+/* line 94, ../sass/darkstrap.scss */
 .form-actions {
   border-top-color: #222;
   background-color: #444;
 }
 
-/* line 98, ../sass/darkstrap.scss */
+/* line 99, ../sass/darkstrap.scss */
 .help-inline {
   color: #999;
 }
 
-/* line 103, ../sass/darkstrap.scss */
+/* line 104, ../sass/darkstrap.scss */
+.table thead {
+  color: white;
+}
+/* line 107, ../sass/darkstrap.scss */
 .table td {
   border-top-color: #666;
 }
 
-/* line 108, ../sass/darkstrap.scss */
+/* line 112, ../sass/darkstrap.scss */
 .table-striped tbody tr:nth-child(2n+1) td,
 .table-striped tbody tr:nth-child(2n+1) th {
   background-color: #444;
 }
 
-/* line 112, ../sass/darkstrap.scss */
+/* line 116, ../sass/darkstrap.scss */
 .table-bordered {
   border: 1px solid #666;
 }
 
-/* line 118, ../sass/darkstrap.scss */
+/* line 122, ../sass/darkstrap.scss */
 .table-bordered th + th,
 .table-bordered td + td,
 .table-bordered th + td,
@@ -185,7 +189,7 @@ legend {
   border-left: 1px solid #666;
 }
 
-/* line 122, ../sass/darkstrap.scss */
+/* line 126, ../sass/darkstrap.scss */
 footer {
   -moz-box-shadow: rgba(255, 255, 255, 0.07) 0 1px 0 inset;
   -webkit-box-shadow: rgba(255, 255, 255, 0.07) 0 1px 0 inset;

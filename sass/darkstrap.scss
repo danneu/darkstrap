@@ -84,6 +84,7 @@ pre {
 form {
   label {
     color: $color;
+    //color: white;
   }
 }
 legend {
@@ -100,6 +101,9 @@ legend {
 }
 
 .table {
+  thead {
+    color: white;
+  }
   td {
     border-top-color: #666;
   }
