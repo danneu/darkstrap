@@ -1,6 +1,16 @@
 @import "compass";
 @import "mixins";
 
+// Contents:
+//   =General
+//   =Breadcrumbs
+//   =Headings
+//   =Navigation
+//   =Forms
+//   =Tables
+//   =Pagination
+//   =Misc
+
 $color:   #c6c6c6;
 $bg:      #2f2f2f;
 $link:    #08c;
@@ -8,19 +18,13 @@ $link:    #08c;
 $warning: #faa732;
 $success: #5bb75b;
 $error:   #FC5B5E; // ds original: #FB292D
+$info:    #3A87AD;
 
 $input-bg: #666; // ds default: #444
 $input-border: #111; // default: white
 $input-placeholder: #666;
 $input-color: #fff;
 
-// Contents:
-//   =General
-//   =Breadcrumbs
-//   =Headings
-//   =Tables
-//   =Forms
-//   =Misc
 
 //=General ========================================
 // Everything with the inset panel just extends .well
@@ -102,6 +106,33 @@ h6 { color: #999; }
   } 
 }
 
+.tabs-below .nav-tabs { border-top: 1px solid #666; }
+.tabs-left .nav-tabs { border-right: 1px solid #666; }
+.tabs-right .nav-tabs { border-left: 1px solid #666; }
+
+.tabs-below .nav-tabs > li > a:hover {
+  border-top: 1px solid #666;
+}
+.tabs-left .nav-tabs > li > a:hover {
+  border-color: transparent #666 transparent transparent;
+}
+.tabs-right .nav-tabs > li > a:hover {
+  border-color: transparent transparent transparent #666;
+}
+
+.tabs-below .nav-tabs .active > a,
+.tabs-below .nav-tabs .active > a:hover {
+  border-color: transparent #666 #666 #666; 
+}
+.tabs-left .nav-tabs .active > a,
+.tabs-left .nav-tabs .active > a:hover {
+  border-color: #666 transparent #666 #666; 
+}
+.tabs-right .nav-tabs .active > a,
+.tabs-right .nav-tabs .active > a:hover {
+  border-color: #666 #666 #666 transparent; 
+}
+
 //=Forms ======================================== 
 @include placeholder($input-placeholder);
 
@@ -171,6 +202,64 @@ legend {
   td + th {
     border-left: 1px solid #666;
   }
+}
+
+//=Pagination
+.pagination a:hover {
+  color: lighten($link, 10%);
+  background-color: darken($bg, 5%);
+}
+.pagination .active a {
+  color: #fff;
+  background-color: darken($bg, 5%);
+}
+.pagination a { border-color: #666; }
+
+//=Pager
+.pager a {
+  background-color: $bg;
+  border-color: #666;
+  &:hover {
+    background-color: darken($bg, 5%);
+    color: lighten($link, 10%);
+  }
+}
+
+//=Alerts
+@mixin alert($color) {
+  color: #fff;
+  background-color: $color;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.25);
+  border-color: darken($color, 25%);
+  h4 {
+    color: darken($color, 20%);
+  }
+}
+.alert { @include alert($warning); }
+.alert-success { @include alert($success); }
+.alert-error { @include alert($error); }
+.alert-info { @include alert($info); }
+
+//=Modals
+
+.modal {
+  background-color: #444;
+}
+.modal-header {
+  border-bottom: 1px solid #222;
+}
+.modal-body p {
+  color: $color;
+}
+.modal-footer {
+  background-color: darken(#444, 5%);
+  border-top: 1px solid #222;
+  @include box-shadow(0 1px 0 #333 inset);
+}
+
+//=Progress bars
+.progress {
+  @extend .well;
 }
 
 //=Misc ======================================== 

@@ -33,21 +33,6 @@
           %h1 
             Darkstrap
 
-        .well
-          %a.btn.btn-warning(href="darkstrap.html")
-            Toggle Darkstrap
-          %a.btn.btn-default(href="bootstrap.html")
-            Toggle Bootstrap
-          %ul(style="margin-top: 10px; margin-bottom: 0;")
-            %li
-              Download
-              %a(href="https://raw.github.com/danneu/darkstrap/master/stylesheets/darkstrap.css") darkstrap.css
-            %li 
-              Simply include it 
-              %em after
-              bootstrap's css
-              
-
         %h1 Header 1
         %h2 Header 2
         %h3 Header 3
@@ -494,8 +479,194 @@
               %li
                 %a(href="#") Help
 
+        %hr
+        %h1 Directional tabs
+        .row
+          .span8.offset2
+            %h2 Tabs on da bottom
+            .tabbable.tabs-below
+              .tab-content
+                Heyyyyaa
+              %ul.nav.nav-tabs
+                %li.active
+                  %a(href="#") Home
+                %li
+                  %a(href="#") Library
+                %li
+                  %a(href="#") Applications
+
+            %h2 Tabs on da left
+            .tabbable.tabs-left
+              %ul.nav.nav-tabs
+                %li
+                  %a(href="#") Home
+                %li.active
+                  %a(href="#") Library
+                %li
+                  %a(href="#") Applications
+              .tab-content
+                Heyyyyaa
         
 
+            %h2 Tabs on da right
+            .tabbable.tabs-right
+              %ul.nav.nav-tabs
+                %li
+                  %a(href="#") Home
+                %li
+                  %a(href="#") Library
+                %li.active
+                  %a(href="#") Applications
+              .tab-content
+                Heyyyyaa
+
+        %hr
+        %h1 Pagination
+        .row
+          .span8.offset2
+            .pagination
+              %ul
+                %li
+                  %a(href="#") Prev
+                %li.active
+                  %a(href="#") 1
+                %li
+                  %a(href="#") 2
+                %li
+                  %a(href="#") 3
+                %li
+                  %a(href="#") 4
+                %li
+                  %a(href="#") Next
+            .pagination
+              %ul
+                %li
+                  %a(href="#") &larr;
+                %li
+                  %a(href="#") 1
+                %li.active
+                  %a(href="#") 2
+                %li.disabled
+                  %a(href="#") ...
+                %li
+                  %a(href="#") 4
+                %li
+                  %a(href="#") &rarr;
+
+        %hr
+        %h1 Pager
+        .row
+          .span8.offset2
+            %ul.pager
+              %li
+                %a(href="#") Previous
+              %li
+                %a(href="#") Next
+            %ul.pager
+              %li.previous
+                %a(href="#") &larr; Older
+              %li.next
+                %a(href="#") Newer &rarr;
+
+        %hr
+        %h1 Inline labels
+        .row
+          .span8.offset2
+            %span.label Default
+            %span.label.label-success New
+            %span.label.label-warning Warning
+            %span.label.label-important Important
+            %span.label.label-info Info
+
+        %hr
+        %h1 Alerts
+        .row 
+          .span8.offset2
+            .alert
+              %a.close &#x2715; 
+              %strong Warning
+              Best check yo self, you're not looking too good.
+            .alert.alert-block
+              %a.close &#x2715; 
+              %h4.alert-heading Warning Block!
+              Best check yo self, you're not...
+        .row
+          .span4
+            .alert.alert-error
+              %strong Oh snap!
+              This is an error.
+            .alert.alert-error.alert-block
+              %h4 Error Block!
+              %strong Oh snap!
+              This is an error.
+          .span4
+            .alert.alert-success
+              %strong Well done!
+              This is success.
+            .alert.alert-success.alert-block
+              %h4 Success Block!
+              %strong Well done!
+              This is success.
+          .span4
+            .alert.alert-info
+              %strong Heads up!
+              This is info.
+            .alert.alert-info.alert-block
+              %h4 Info Block!
+              %strong Heads up!
+              This is info.
+
+        %hr
+        %h1 Progress bars
+        .row
+          .span4
+            .progress
+              .bar(style="width: 20%")
+          .span4
+            .progress.progress-info.progress-striped
+              .bar(style="width: 80%")
+          .span4
+            .progress.progress-danger.progress-striped.active
+              .bar(style="width: 40%")
+        %hr
+        %h1 Modals
+        .modal(style="position:relative;top:auto;left:auto;margin:0 auto;z-index:1;")
+          .modal-header
+            %a.close(data-dismiss="modal" href="#") &times;
+            %h3 Modal header
+          .modal-body
+            %p One fine body...
+            %p You should be able to but whatever you want in here. Like
+            %a.btn.btn-danger(href="#") Buttons
+            and
+            %code Code
+            and
+            %br
+            %br
+            .well Radical Wells
+          .modal-footer
+            %a.btn.btn-primary(href="#") Save changes
+            %a.btn(href="#") Close
+
+        %hr
+        %h1 Well, that's all
+
+        .row
+          .span8.offset2
+            .well
+              %h2(style="margin-bottom: 10px;")
+                Thanks for checking out 
+                %code(style="font-size:26px;") darkstrap.css
+              %p I'll maintain it and listen to any feedback.
+              %p 
+                You can find my email at 
+                %a(href="http://danneu.com") danneu.com
+              
+
+
+
+
+        
 
 
       %footer
