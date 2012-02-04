@@ -1,0 +1,492 @@
+!!! 5
+%html
+  %head
+    %title Darkstrap
+    %link(href="stylesheets/bootstrap.css" rel="stylesheet")
+    %link(href="stylesheets/bootstrap.responsive" rel="stylesheet")
+    %link(href="stylesheets/darkstrap.css" rel="stylesheet")
+    %script(type="text/javascript" src="js/jquery.min.js")
+    %script(type="text/javascript" src="js/bootstrap.js")
+  %body
+    .navbar
+      .navbar-inner
+        .container
+          %a.brand(href="/") Darkstrap
+          %ul.nav
+            %li 
+              %a.active(href="/") About
+            %li 
+              %a(href="/") Contact
+    .container
+      .content
+        %ul.breadcrumb
+          %li
+            %a(href="/") Home
+            %span.divider /
+          %li 
+            %a(href="/") Crumb
+            %span.divider /
+          %li Crumb
+
+
+        .page-header
+          %h1 
+            Darkstrap
+
+        %h1 Header 1
+        %h2 Header 2
+        %h3 Header 3
+        %h4 Header 4
+        %h5 Header 5
+        %h6 Header 6
+
+        %hr/
+        
+        %h1 Give anything the .well class
+
+        %p.well
+          Becomes radical.
+
+        %hr/
+
+        %h1 Blockquotes
+
+        .row
+          .span12
+            %blockquote
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis.
+              %small Someone Famous
+            %blockquote.pull-right
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis.
+              %small Someone Famous
+
+        %hr/
+
+        %h1 Lists
+
+        .row
+          .span3
+            %h4 Unordered List
+            %ul
+              %li Item 1
+              %li Item 2
+              %li Item 3
+          .span3
+            %h4 Unordered, Unstyled List
+            %ul.unstyled
+              %li Item 1
+              %li Item 2
+              %li Item 3
+          .span3
+            %h4 Ordered List
+            %ol
+              %li Item 1
+              %li Item 2
+              %li Item 3
+          .span3
+            %h4 Description List
+            %dl
+              %dt Something
+              %dd Somthing
+              %dt Something
+              %dd Somthing
+              %dt Something
+              %dd Somthing
+
+        %hr/
+
+        %h1 Code
+
+        .row
+          .span8.offset2
+            %p
+              Here's an 
+              %code inline
+              snippet.
+
+            %pre
+              :preserve
+                class BasicBlock
+                  puts "Here's a basic block"
+                end
+
+        %hr/
+
+        %h1 Tables
+        .row
+          .span8.offset2
+            %table.table
+              %thead
+                %tr
+                  %th #
+                  %th First Name
+                  %th Last Name
+              %tbody
+                %tr
+                  %td 1
+                  %td Chuck
+                  %td Bancroft
+                %tr
+                  %td 2
+                  %td Hilary
+                  %td Zezu
+                %tr
+                  %td 3
+                  %td Billy Bob
+                  %td Bobblesmith
+        .row
+          .span8.offset2
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th #
+                  %th First Name
+                  %th Last Name
+              %tbody
+                %tr
+                  %td 1
+                  %td Chuck
+                  %td Bancroft
+                %tr
+                  %td 2
+                  %td Hilary
+                  %td Zezu
+                %tr
+                  %td 3
+                  %td Billy Bob
+                  %td Bobblesmith
+        .row
+          .span8.offset2
+            %table.table.table-bordered
+              %thead
+                %tr
+                  %th #
+                  %th First Name
+                  %th Last Name
+              %tbody
+                %tr
+                  %td 1
+                  %td Chuck
+                  %td Bancroft
+                %tr
+                  %td 2
+                  %td Hilary
+                  %td Zezu
+                %tr
+                  %td 3
+                  %td Billy Bob
+                  %td Bobblesmith
+        .row
+          .span8.offset2
+            %table.table.table-condensed
+              %thead
+                %tr
+                  %th #
+                  %th First Name
+                  %th Last Name
+              %tbody
+                %tr
+                  %td 1
+                  %td Chuck
+                  %td Bancroft
+                %tr
+                  %td 2
+                  %td Hilary
+                  %td Zezu
+                %tr
+                  %td 3
+                  %td Billy Bob
+                  %td Bobblesmith
+        %hr/
+
+        %h1 Forms
+
+        .row
+          .span8.offset2
+            %form.well
+              %legend Basic Form
+              %label Label name
+              %input(type="text" placeholder="Type something")
+                %span.help-inline Associated help text!
+              %label.checkbox
+                %input(type="checkbox") Check me out
+              %button.btn(type="submit") Submit
+        .row
+          .span8.offset2
+            %form.well.form-search
+              %legend Search Form
+              %input.search-query(type="text")
+              %button.btn(type="submit") Search
+        .row
+          .span8.offset2
+            %form.well.form-inline
+              %legend Inline Form
+              %input.input-small(type="text" placeholder="Email")
+              %input.input-small(type="password" placeholder="Password")
+              %button.btn(type="submit") Go
+
+        .row
+          .span8.offset2
+            %form.form-horizontal
+              %fieldset
+                %legend Here's a legend
+                .control-group
+                  %label.control-label(for="input01") Text input
+                  .controls
+                    %input.input-xlarge#input01(type="text")
+                    %p.help-block Here's a help block
+                .control-group
+                  %label.control-label(for="optionsCheckbox") Checkbox
+                  .controls
+                    %label.checkbox
+                      %input#optionsCheckbox(type="checkbox" value="options1")
+                        Option one is this and that.
+
+                .control-group
+                  %label.control-label(for="select01") Select list
+                  .controls
+                    %select#select01
+                      %option something
+                      %option 2
+                      %option 3
+                      %option 4
+                      %option 5
+
+                .control-group
+                  %label.control-label(for="multiSelect") Multi select
+                  .controls
+                    %select#multiSelect(multiple="multiple")
+                      %option something
+                      %option 2
+                      %option 3
+                      %option 4
+                      %option 5
+
+                .control-group
+                  %label.control-label(for="fileInput") File input
+                  .controls
+                    %input.input-file#fileInput(type="file")
+
+                .control-group
+                  %label.control-label(for="textarea") Textarea
+                  .controls
+                    %textarea#textarea.input-xlarge(rows="3")
+
+                .control-group
+                  %label.control-label(for="prependedInput") Prepended text
+                  .controls
+                    .input-prepend
+                      %span.add-on @
+                      %input.span2#prependedInput(size="16" type="text")
+                    %p.help-block Some help text
+                .control-group
+                  %label.control-label(for="appendedInput") Appended text
+                  .controls
+                    .input-append
+                      %input.span2#appendedInput(size="16" type="text")
+                      %span.add-on .00
+                    %p.help-block Some help text
+
+                .form-actions
+                  %button.btn.btn-primary(type="submit") Save changes
+                  %button.btn(type="reset") Cancel
+
+
+        .row
+          .span8.offset2
+            %form.form-horizontal
+              %fieldset
+                %legend Form control states
+                .control-group.warning
+                  %label.control-label(for="inputError") Input with warning
+                  .controls
+                    %input#inputError(type="text")
+                    %span.help-inline Something may have gone wrong
+                .control-group.error
+                  %label.control-label(for="inputError") Input with error
+                  .controls
+                    %input#inputError(type="text")
+                    %span.help-inline Something did go wrong
+                .control-group.success
+                  %label.control-label(for="inputError") Input with error
+                  .controls
+                    %input#inputError(type="text")
+                    %span.help-inline It went right!
+
+                .control-group.success
+                  %label.control-label(for="selectError") Select with success
+                  .controls
+                    %select#selectError
+                      %option 1
+                      %option 2
+                      %option 3
+                      %option 4
+                      %option 5
+                    %span.help-inline This also went right!
+
+            .form-actions
+              %button.btn.btn-primary(type="submit") Save changes
+              %button.btn(type="reset") Cancel
+
+        %hr/
+
+        %h1 Buttons
+
+        .row
+          .span8.offset2
+            %button.btn Default
+            %button.btn.btn-primary Primary
+            %button.btn.btn-info Info
+            %button.btn.btn-success Success
+            %button.btn.btn-warning Warning
+            %button.btn.btn-danger Danger
+            %br
+            %br
+            .btn-group
+              %a.btn(href="#") 1
+              %a.btn(href="#") 2
+              %a.btn(href="#") 3
+              %a.btn(href="#") 4
+              %a.btn(href="#") 5
+              %a.btn(href="#") 6
+              %a.btn(href="#") 7
+              %a.btn(href="#") 8
+              %a.btn(href="#") 9
+              %a.btn(href="#") 10
+            %br
+            .btn-group
+              %a.btn.btn-info(href="#") Dropdown Button
+              %a.btn.btn-info.dropdown-toggle(data-toggle="dropdown" href="#")
+                %span.caret
+              %ul.dropdown-menu
+                %li 
+                  %a(href="#") First Link
+                %li 
+                  %a(href="#") Second Link
+                %li 
+                  %a(href="#") Third Link
+        %hr
+        %h1 Tabs and pills
+        .row
+          .span8.offset2
+            %h2 Tabs
+            %ul.nav.nav-tabs
+              %li.active
+                %a(href="#") Home
+              %li
+                %a(href="#") Link One
+              %li
+                %a(href="#") Link Two
+            %ul.nav.nav-tabs.nav-stacked
+              %li.active
+                %a(href="#") Home
+              %li
+                %a(href="#") Link One
+              %li
+                %a(href="#") Link Two
+            %h2 Basic pills
+            %ul.nav.nav-pills
+              %li.active
+                %a(href="#") Home
+              %li
+                %a(href="#") Link One
+              %li
+                %a(href="#") Link Two
+            %ul.nav.nav-pills.nav-stacked
+              %li.active
+                %a(href="#") Home
+              %li
+                %a(href="#") Link One
+              %li
+                %a(href="#") Link Two
+            %h2 With dropdowns
+            %ul.nav.nav-tabs
+              %li.active.dropdown
+                %a.dropdown-toggle(data-toggle="dropdown")
+                  Dropdown
+                  %b.caret
+                %ul.dropdown-menu
+                  %li
+                    %a(href="#") First Link
+                  %li
+                    %a(href="#") Second Link
+                  %li
+                    %a(href="#") Third Link
+              %li.dropdown
+                %a.dropdown-toggle(data-toggle="dropdown" href="#")
+                  Dropdown
+                  %b.caret
+                %ul.dropdown-menu
+                  %li
+                    %a(href="#") First Link
+                  %li
+                    %a(href="#") Second Link
+                  %li
+                    %a(href="#") Third Link
+              %li
+                %a(href="#") No Dropdown
+
+
+            %ul.nav.nav-pills
+              %li.active.dropdown
+                %a.dropdown-toggle(data-toggle="dropdown")
+                  Dropdown
+                  %b.caret
+                %ul.dropdown-menu
+                  %li
+                    %a(href="#") First Link
+                  %li
+                    %a(href="#") Second Link
+                  %li
+                    %a(href="#") Third Link
+              %li.dropdown
+                %a.dropdown-toggle(data-toggle="dropdown" href="#")
+                  Dropdown
+                  %b.caret
+                %ul.dropdown-menu
+                  %li
+                    %a(href="#") First Link
+                  %li
+                    %a(href="#") Second Link
+                  %li
+                    %a(href="#") Third Link
+              %li
+                %a(href="#") No Dropdown
+        
+        %hr
+        %h1 Nav lists
+        .row
+          .span8.offset2
+            %ul.nav.nav-list
+              %li.nav-header List header
+              %li.active
+                %a(href="#") 
+                  %i.icon-home.icon-white
+                  Home
+              %li
+                %a(href="#") 
+                  %i.icon-book.icon-white
+                  Library
+              %li
+                %a(href="#") 
+                  %i.icon-pencil.icon-white
+                  Applications
+              %li.nav-header Another list header
+              %li
+                %a(href="#") Profile
+              %li
+                %a(href="#") Settings
+              %li
+                %a(href="#") Help
+
+        
+
+
+
+      %footer
+        %hr
+        %p
+          Darkstrap on 
+          %a(href="https://github.com/danneu/darkstrap") Github
+
+  

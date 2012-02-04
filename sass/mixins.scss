@@ -1,4 +1,27 @@
-
+@mixin placeholder($color: $input-placeholder) {
+  :-moz-placeholder {
+    color: $color;
+  }
+  ::-webkit-input-placeholder {
+    color: $color;
+  }
+}
+@mixin controls($color) {
+  &> label, 
+  .help-block,
+  .help-inline { color: $color; } 
+  input, select, textarea {
+    //color: lighten($color, 20%);
+    color: $color;
+    border-color: $color;
+  } 
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: $color;
+    @include box-shadow(0 0 6px $color);
+  }
+}
 @mixin inset-panel-dark {
   @include box-shadow(rgba(#fff, .1) 0 1px 0, rgba(#000, .8) 0 1px 7px 0px inset); 
   background: darken(#2f2f2f, 6); 

@@ -1,91 +1,133 @@
 @import "compass";
 @import "mixins";
 
-$color: #c6c6c6;
-$bg: #2f2f2f;
+$color:   #c6c6c6;
+$bg:      #2f2f2f;
+$link:    #08c;
 
 $warning: #faa732;
 $success: #5bb75b;
-$error: #FB292D;
+$error:   #FC5B5E; // ds original: #FB292D
 
-.control-group.warning > label, 
-.control-group.warning .help-block,
-.control-group.warning .help-inline { color: $warning; }
-.control-group.success > label, 
-.control-group.success .help-block,
-.control-group.success .help-inline { color: $success; }
-.control-group.error > label, 
-.control-group.error .help-block,
-.control-group.error .help-inline { color: $error; }
+$input-bg: #666; // ds default: #444
+$input-border: #111; // default: white
+$input-placeholder: #666;
+$input-color: #fff;
 
-.control-group.warning input, 
-.control-group.warning select, 
-.control-group.warning textarea {
-  border-color: $warning;
-  color: $warning; }
-.control-group.success input, 
-.control-group.success select, 
-.control-group.success textarea {
-  border-color: $success;
-  color: $success; }
-.control-group.error input, 
-.control-group.error select, 
-.control-group.error textarea {
-  border-color: $error;
-  color: $error; }
+// Contents:
+//   =General
+//   =Breadcrumbs
+//   =Headings
+//   =Tables
+//   =Forms
+//   =Misc
 
+//=General ========================================
+// Everything with the inset panel just extends .well
+.well { @include inset-panel-dark; }
 
 body {
   background: $bg;
   color: $color;
 }
+
+//=Breadcrumbs =======================================
 .breadcrumb {
-  @include inset-panel-dark;
+  @extend .well;
   border: 0; //over bs
-  li {
+  li { 
     text-shadow: 0 1px 0 #000; //over bs
-  }
+  } 
 }
-.page-header {
-  @include horizontal-rule-dark;
-}
-h1,h2,h3,h4,h5,h6 {
-  color: white;
-}
+
+//=Headings ======================================
+.page-header { @include horizontal-rule-dark; }
+h1,h2,h3,h4,h5,h6 { color: white; }
 h6 { color: #999; }
 
-blockquote {
-  border-left-color: #111;
-  &.pull-right {
-    border-right-color: #111;
+//=Navigation
+.nav .dropdown-menu {
+}
+.nav-tabs .open .dropdown-toggle,
+.nav-pills .open .dropdown-toggle,
+.nav > .open.active > a:hover {
+  background-color: darken($bg, 5%);
+  border-color: $bg $bg transparent $bg;
+}
+.nav > .dropdown.active >  a:hover {
+  color: #fff;
+}
+.nav-tabs .active .dropdown-toggle .caret,
+.nav-pills .active .dropdown-toggle .caret {
+  border-top-color: #fff;
+}
+.nav-tabs {
+  border-bottom: 1px solid #666;
+  &> .active > a,
+  &> .active > a:hover {
+    background-color: $bg;
+    color: #fff;
+    border-color: #666 #666 transparent #666;
+  }
+  &> li > a:hover {
+    border-color: $bg $bg #666 $bg;
+    background-color: darken($bg, 5%);
+    color: lighten($link, 10%);
+  }
+  &.nav-stacked {
+    &> li > a, 
+    &> li > a:hover {
+      border-color: #666;
+    }
   }
 }
-
-hr {
-  @include horizontal-rule-dark;
-  border-top: none;
+.nav-pills {
+  &> li > a:hover {
+    background-color: darken($bg, 5%);
+    color: lighten($link, 10%);
+  }
+}
+.nav-list > li > a,
+.nav-list .nav-header {
+  text-shadow: 0 1px 0 #000;
+}
+.nav-list > li > a:hover { 
+  background-color: darken($bg, 10%); 
+  color: lighten($link, 10%);
+}
+.nav-list .active {
+  &> a:hover { 
+    background-color: #0088cc; 
+    color: white;
+  } 
 }
 
-.well {
-  @include inset-panel-dark;
- 
-}
+//=Forms ======================================== 
+@include placeholder($input-placeholder);
 
-code {
-  @include inset-panel-dark;
-  border: none; //over bs
-}
-pre {
-  @include inset-panel-dark;
-  border: none; //over bs
+.input-prepend .add-on,
+.input-append .add-on {
+  background: #444;
   color: $color;
+  border-color: #111;
+  text-shadow: 0 1px 0  black;
 }
 
-form {
-  label {
-    color: $color;
-    //color: white;
-  }
+label { 
+  color: $color; 
+}
+
+input,
+input[type="file"],
+select,
+textarea { 
+  color: $input-color;
+  //background-color: $input-bg; 
+  border-color: $input-border;
+  @extend .well;
+}
+.search-query {
+  -webkit-box-shadow:rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.0) 0 1px 7px 0px inset;
 }
 legend {
   color: white;
@@ -99,7 +141,12 @@ legend {
 .help-inline {
   color: #999;
 }
+.control-group {
+  &.warning { @include controls($warning); }
+  &.success { @include controls($success); }
+  &.error   { @include controls($error); } }
 
+//=Tables ======================================== 
 .table {
   thead {
     color: white;
@@ -108,23 +155,42 @@ legend {
     border-top-color: #666;
   }
 }
-  .table-striped tbody tr:nth-child(2n+1) td, 
-  .table-striped tbody tr:nth-child(2n+1) th {
+.table-striped {
+  tbody tr:nth-child(2n+1) {
+    td, th {
       background-color: #444;
+    }
   }
+}
 
-  .table-bordered {
-    border: 1px solid #666;
-  }
-  .table-bordered th + th, 
-  .table-bordered td + td,
-  .table-bordered th + td,
-  .table-bordered td + th {
+.table-bordered {
+  border: 1px solid #666;
+  th + th,
+  td + td,
+  th + td,
+  td + th {
     border-left: 1px solid #666;
   }
+}
 
-footer {
-  @include horizontal-rule-top-dark;
-  margin-top: 50px;
-  padding: 10px;
+//=Misc ======================================== 
+blockquote {
+  border-left-color: #111;
+  &.pull-right { border-right-color: #111; } 
+}
+
+hr {
+  @include horizontal-rule-dark;
+  border-top: none;
+}
+
+
+code {
+  @extend .well;
+  border: none; //over bs
+}
+pre {
+  @extend .well;
+  border: none; //over bs
+  color: $color;
 }
