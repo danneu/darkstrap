@@ -1,16 +1,19 @@
-# Darkstrap
+Demo: [Darkstrap vs. Bootstrap][demo]
+
+# Darkstrap (v0.9.0)
+
+Made by [danneu][http://danneu.com].
 
 A dark theme for Twitter Bootstrap 2.
 
-* Darkstrap is just a CSS file that you load after vanilla Bootstrap 2.
-* Compatibility with latest Twitter Bootstrap is in progress: https://github.com/danneu/darkstrap/issues/6#issuecomment-11764403
+Work in progress.
 
-    * Demo (not kept up-to-date): http://darkstrap-unfinished.herokuapp.com/
-    * Only tested with Firefox on OSX. 
-    * Currently working on cross-browser compatibility!
-    * Not ready yet. :(
-    
-**Caution:** Darkstrap (this repository) is currently outdated. I will push up the rewritten version when I've solved the main browser incompatibilities.
+## Known issues
+
+v0.9.0 is superior to the original release, but it still has some glaring issues.
+
+* Cross-browser compatibility (works best on Firefox for now)
+* The only tested elements are those in the demo.
     
 ## Usage
 
@@ -18,7 +21,10 @@ A dark theme for Twitter Bootstrap 2.
 * Place it in your stylesheet directory
 * Include it after you load `bootstrap.css`
 
-    `<link href="path/to/darkstrap.css" rel="stylesheet" type="text/css" />`
+    <head>
+      <link href='stylesheets/bootstrap.css' rel='stylesheet' />
+      <link href='stylesheets/darkstrap.css' rel='stylesheet' />
+    </head>
     
 ## Ideas behind the design
 
@@ -34,9 +40,27 @@ A dark theme for Twitter Bootstrap 2.
 
     ![screenshot of a darkstrap form](http://dl.dropbox.com/u/51836583/Screenshots/bg.png)
 
+## Development
 
+I use:
 
+* Sass
+* a few Compass helpers
+* Thomas McDonald's Less -> Sass [Bootstrap port](https://github.com/thomas-mcdonald/bootstrap-sass)
 
+So that I can utilize Bootstrap's override variables, I compile Darkstrap with
+Bootstrap and then extract only the things that changed into darkstrap.css.
 
+## Requests/Issues/Suggestions/Feedback
 
+I'm always open to feedback and ideas.
 
+I'm not a designer and I didn't do much testing on anything other than my screen
+with my eyes.
+
+Since I don't actually use Darkstrap in a project of my own anymore, I'm open to 
+suggestions from the people that do.
+
+Feel free to create a [Github Issue](https://github.com/danneu/darkstrap/issues) or just [email me](mailto:danrodneu@gmail.com).
+
+[demo]: http://danneu.com/bag/darkstrap/darkstrap.html
