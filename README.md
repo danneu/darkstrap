@@ -2,7 +2,7 @@ Demo: [Darkstrap vs. Bootstrap][demo]
 
 # Darkstrap (v0.9.0)
 
-Made by [danneu][http://danneu.com].
+Made by [danneu](http://danneu.com).
 
 A dark theme for Twitter Bootstrap 2.
 
