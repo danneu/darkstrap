@@ -598,3 +598,18 @@ select:focus:invalid:focus {
 .progress {
   @extend .darkwell;
 }
+
+//http://stackoverflow.com/questions/7855590/how-can-i-prevent-scroll-bars-from-being-hidden-for-trackpad-users-in-webkit
+// Make scrollbar stand out in Webkit by manually overriding it.
+select {
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 11px;
+    //height: 11px;
+  }
+  &::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      border: 2px solid #202020; /* should match background, can't be transparent */
+      background-color: rgba(0, 0, 0, .5);
+  }
+}

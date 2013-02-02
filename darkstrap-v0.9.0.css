@@ -894,3 +894,13 @@ select:focus:invalid:focus {
 .alert-info h1, .alert-info h2, .alert-info h3, .alert-info h4, .alert-info h5, .alert-info h6 {
   color: #204B61;
 }
+
+select::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 11px;
+}
+select::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid #202020;
+  background-color: rgba(0, 0, 0, 0.5);
+}
