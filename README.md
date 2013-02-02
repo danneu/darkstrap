@@ -5,15 +5,6 @@ Demo: [Darkstrap vs. Bootstrap][demo]
 Made by [danneu][http://danneu.com].
 
 A dark theme for Twitter Bootstrap 2.
-
-Work in progress.
-
-## Known issues
-
-v0.9.0 is superior to the original release, but it still has some glaring issues.
-
-* Cross-browser compatibility (works best on Firefox for now)
-* The only tested elements are those in the demo.
     
 ## Usage
 
@@ -40,26 +31,13 @@ v0.9.0 is superior to the original release, but it still has some glaring issues
 
     ![screenshot of a darkstrap form](http://dl.dropbox.com/u/51836583/Screenshots/bg.png)
 
-## Development
-
-I use:
-
-* Sass
-* a few Compass helpers
-* Thomas McDonald's Less -> Sass [Bootstrap port](https://github.com/thomas-mcdonald/bootstrap-sass)
-
-So that I can utilize Bootstrap's override variables, I compile Darkstrap with
-Bootstrap and then extract only the things that changed into darkstrap.css.
-
 ## Requests/Issues/Suggestions/Feedback
 
 I'm always open to feedback and ideas.
 
-I'm not a designer and I didn't do much testing on anything other than my screen
-with my eyes.
+I'm not a designer and I didn't do much testing on anything other than my screen with my eyes.
 
-Since I don't actually use Darkstrap in a project of my own anymore, I'm open to 
-suggestions from the people that do.
+Since I don't actually use Darkstrap in a project of my own anymore, I'm open to suggestions from the people that do.
 
 Feel free to create a [Github Issue](https://github.com/danneu/darkstrap/issues) or just [email me](mailto:danrodneu@gmail.com).
 
