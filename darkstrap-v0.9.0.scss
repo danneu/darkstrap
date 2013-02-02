@@ -419,10 +419,18 @@ select:focus:invalid:focus {
     }
   }
   .navbar-inner {
-    background-color: #fafafa;
-    background-image: linear-gradient(to bottom, white, #999);
+    background: #fafafa;
     border: 1px solid #030303;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+
+    // http://www.colorzilla.com/gradient-editor/
+    background: -moz-linear-gradient(top,  #ffffff 0%, #999999 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#999999));
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#999999 100%);
+    background: -o-linear-gradient(top,  #ffffff 0%,#999999 100%);
+    background: -ms-linear-gradient(top,  #ffffff 0%,#999999 100%);
+    background: linear-gradient(to bottom,  #ffffff 0%,#999999 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#999999',GradientType=0 );
   }
 
   .nav > li > a {
