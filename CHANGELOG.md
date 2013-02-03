@@ -2,6 +2,9 @@ Screenshots are from OSX.
 
 # v0.9.1
 
+* Removed .scss file to avoid confusion.
+* Darkstrap.css versioning now happens in the file instead of on the filename.
+
 ## Webkit (Chrome/Safari)
 
 * Fixed inverted navbar for Chrome.
@@ -23,3 +26,4 @@ Screenshots are from OSX.
     After:
     
     ![after](http://dl.dropbox.com/u/51836583/Screenshots/c-.png)
+
