@@ -1,3 +1,9 @@
+/* 
+ * Darkstrap v0.9.1
+ * By danneu (http://github.com/danneu/darkstrap)
+ * Based off Twitter Bootstrap v2.2.2
+ */
+
 tr.warning,
 tr.success,
 tr.error,
@@ -740,10 +746,16 @@ select:focus:invalid:focus {
   color: #555;
 }
 .navbar-inverse .navbar-inner {
-  background-color: #fafafa;
-  background-image: linear-gradient(to bottom, #ffffff, #999999);
+  background: #fafafa;
   border: 1px solid #030303;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  background: -moz-linear-gradient(top, white 0%, #999999 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #999999));
+  background: -webkit-linear-gradient(top, white 0%, #999999 100%);
+  background: -o-linear-gradient(top, white 0%, #999999 100%);
+  background: -ms-linear-gradient(top, white 0%, #999999 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #999999 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#999999',GradientType=0 );
 }
 .navbar-inverse .nav > li > a {
   color: #555;
@@ -887,4 +899,14 @@ select:focus:invalid:focus {
 }
 .alert-info h1, .alert-info h2, .alert-info h3, .alert-info h4, .alert-info h5, .alert-info h6 {
   color: #204B61;
+}
+
+select::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 11px;
+}
+select::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid #202020;
+  background-color: rgba(0, 0, 0, 0.5);
 }
