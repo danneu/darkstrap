@@ -1,6 +1,6 @@
 Demo: [Darkstrap vs. Bootstrap][demo]
 
-# Darkstrap (v0.9.1)
+# Darkstrap (v0.9.2)
 
 Made by [danneu](http://danneu.com).
 
