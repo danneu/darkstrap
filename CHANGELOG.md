@@ -1,6 +1,10 @@
 Screenshots are from OSX.
 
-# v0.9.1
+# v0.9.2 (2 Feb 2013)
+
+* Added support for modals and popovers.
+
+# v0.9.1 (2 Feb 2013)
 
 * Removed .scss file to avoid confusion.
 * Darkstrap.css versioning now happens in the file instead of on the filename.

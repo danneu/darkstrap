@@ -1,5 +1,5 @@
 /* 
- * Darkstrap v0.9.1
+ * Darkstrap v0.9.2
  * By danneu (http://github.com/danneu/darkstrap)
  * Based off Twitter Bootstrap v2.2.2
  */
@@ -909,4 +909,52 @@ select::-webkit-scrollbar-thumb {
   border-radius: 8px;
   border: 2px solid #202020;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  background-color: #444;
+}
+
+.modal-header {
+  border-bottom: 1px solid #222222;
+}
+
+.modal-body p {
+  color: #c6c6c6;
+}
+
+.modal-footer {
+  background-color: #373737;
+  border-top: 1px solid #222222;
+  -moz-box-shadow: 0 1px 0 #333333 inset;
+  -webkit-box-shadow: 0 1px 0 #333333 inset;
+  -o-box-shadow: 0 1px 0 #333333 inset;
+  box-shadow: 0 1px 0 #333333 inset;
+}
+
+.popover {
+  background: #444;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
+}
+
+.popover-title {
+  background: #373737;
+  border-bottom-color: #222;
+}
+
+.popover.top .arrow:after {
+  border-top-color: #444;
+}
+
+.popover.right .arrow:after {
+  border-right-color: #444;
+}
+
+.popover.bottom .arrow:after {
+  border-bottom-color: #444;
+}
+
+.popover.left .arrow:after {
+  border-left-color: #444;
 }
