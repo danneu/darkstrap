@@ -300,6 +300,7 @@ textarea::-webkit-input-placeholder {
   background: #202020;
   background-color: rgba(0, 0, 0, 0.3);
   border: 0;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000,endColorstr=#88000000);
 }
 
 .darkwell, .breadcrumb, code, pre, select,
@@ -324,6 +325,7 @@ input[type="color"],
   background: #202020;
   background-color: rgba(0, 0, 0, 0.3);
   border: 0;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000,endColorstr=#88000000);
 }
 
 .breadcrumb {
