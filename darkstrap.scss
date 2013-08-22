@@ -1,0 +1,649 @@
+@import "compass";
+$bg:                    #2f2f2f;
+$warning:               #faa732;
+$success:               #5bb75b;
+$error:                 #fc5b5e;
+$info:                  #3a87ad;
+
+$ds_inputBackground: #666; // ds default: #444
+$ds_inputBorder: #111; // default: white
+$ds_inputPlaceholder: #666;
+$ds_inputColor: #fff;
+
+// Bootstrap variables
+$bodyBackground:        $bg; 
+$textColor:             #c6c6c6; 
+$linkColor: #08c;
+$linkColorHover: lighten($linkColor, 15%);
+
+$tableBorder:           #666; 
+$tableBackgroundAccent: #444;
+$tableBackgroundHover:  #666;
+
+$warningBackground:     $warning;
+$successBackground:     $success;
+$errorBackground:       $error;
+$infoBackground:        $info;
+
+$iconSpritePath: "../img/glyphicons-halflings.png";
+$iconWhiteSpritePath: "../img/glyphicons-halflings-white.png";
+
+$navbarBackground: #222;
+$navbarBackgroundHighlight: #444;
+$navbarText: $textColor;
+$navbarBrandColor: $textColor;
+$navbarLinkColor: $textColor;
+$navbarLinkColorHover: white;
+$navbarLinkColorActive: white;
+
+// Forms
+$placeholderText: #666;
+$inputBackground: #ccc;
+$formActionsBackground: #444;
+
+// Bootstrap Sass variable overrides
+//$warningBorder: $warningBackground; 
+//$successBorder: $successBackground;
+//$errorBorder: $errorBackground;
+//$infoBorder: $infoBackground;
+
+tr.warning,
+tr.success,
+tr.error,
+tr.info {
+  color: #fff;
+}
+
+@mixin placeholder($color: $ds_inputPlaceholder) {
+  :-moz-placeholder {
+    color: $color;
+  }
+  ::-webkit-input-placeholder {
+    color: $color;
+  }
+}
+@mixin controls($color) {
+  input, select, textarea {
+    color: $color;
+    border-color: $color;
+    @include inset-panel-dark;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: $color;
+    @include box-shadow(0 0 6px $color); 
+  }
+  .control-label, 
+  .help-block, 
+  .help-inline {
+    color: $color;
+  }
+
+}
+@mixin inset-panel-dark {
+  @include box-shadow(rgba(#fff, .1) 0 1px 0, rgba(#000, .8) 0 1px 7px 0px inset);
+  background: darken(#2f2f2f, 6);
+  background-color: rgba(#000, .3); 
+}
+@mixin horizontal-rule-dark {
+  @include box-shadow(rgba(#fff, .07) 0 1px 0);
+  border-bottom: 1px solid #121212; }
+
+@mixin horizontal-rule-top-dark {
+  @include box-shadow(rgba(#fff, .07) 0 1px 0 inset);
+border-top: 1px solid #121212; }
+
+@mixin vertical-rule-dark {
+  @include box-shadow(rgba(#fff, .07) 1px 0 0);
+border-right: 1px solid #121212; }
+
+@mixin vertical-rule-left-dark {
+  @include box-shadow(rgba(#fff, .07) 1px 0 0 inset);
+border-left: 1px solid #121212; }
+//=========================================
+
+@import "bootstrap-v2.2.2";
+
+.well { 
+  @include inset-panel-dark; 
+  border: 0;
+}
+.darkwell { 
+  @include inset-panel-dark; 
+  border: 0;
+}
+.breadcrumb {
+  @extend .darkwell;
+  border: 0; //over bs
+  li {
+    text-shadow: 0 1px 0 #000; //over bs
+  }
+}
+//=Headings ======================================
+.page-header { @include horizontal-rule-dark; }
+h1,h2,h3,h4,h5,h6 { color: white; }
+h6 { color: #999; }
+
+//=Misc ========================================
+blockquote {
+  border-left-color: #111;
+  &.pull-right { border-right-color: #111; }
+}
+
+hr {
+  @include horizontal-rule-dark;
+  border-top: none;
+}
+
+code {
+  @extend .darkwell;
+  border: none; //over bs
+  padding: 2px 4px; //added, is my well mixin stomping on sass well mixin?
+}
+pre {
+  @extend .darkwell;
+  border: none; //over bs
+  color: $textColor;
+  padding: 8px; //added. i think my .well is stomping on bootstrap-sass mixin.
+}
+
+//=Forms ========================================
+legend {
+  @include horizontal-rule-dark;
+  color: #fff;
+}
+
+select,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  color: $ds_inputColor;
+  @extend .darkwell;
+  @include placeholder;
+  // Default: 20px. Need to compensate for the inset look so that it lines up with pre/appended elements.
+  // TODO: 21px if pre/appended with a span, 22px if pre/appended with button.
+  height: 21px 
+}
+
+textarea { // TODO: DRY me up.
+  color: $ds_inputColor;
+  @extend .darkwell;
+  @include placeholder;
+}
+
+// Need to compensate for inset + 4px padding.
+select { height: 29px; }
+
+.input-prepend .add-on,
+.input-append .add-on {
+  background: #444;
+  color: $textColor;
+  border-color: #111;
+  text-shadow: 0 1px 0 black;
+}
+
+.form-actions {
+  border-top-color: #222;
+}
+.well .form-actions {
+  border-top-color: #000;
+  background-color: rgba(#000, .3);
+  margin-left: -17px;
+  margin-right: -17px;
+  margin-bottom: -17px;
+}
+
+.help-inline,
+.help-block { 
+  color: #999;
+}
+.control-group {
+  &.warning { @include controls($warning); }
+  &.success { @include controls($success); }
+  &.error { @include controls($error); } 
+  &.info { @include controls($info); } 
+}
+
+// TODO: DRY me. Remove redundancy.
+input:focus:invalid,
+textarea:focus:invalid,
+select:focus:invalid {
+  //color: #b94a48;
+  border-color: $error; 
+}
+input:focus:invalid:focus,
+textarea:focus:invalid:focus,
+select:focus:invalid:focus {
+  border-color: $error;
+  box-shadow: 0 0 6px $error; 
+}
+
+.btn-link {
+  text-shadow: none;
+  //&:hover {
+    
+  //}
+}
+
+.img-polaroid {
+  background-color: #111; //fallback
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+
+//=Navigation
+.nav-tabs .open .dropdown-toggle,
+.nav-pills .open .dropdown-toggle,
+.nav > .open.active > a:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+  //border-color: $bg $bg transparent $bg;
+  border-color: transparent transparent #666 transparent;
+}
+.nav > .dropdown.active > a:hover {
+  color: #fff;
+}
+.nav-tabs .active .dropdown-toggle .caret,
+.nav-pills .active .dropdown-toggle .caret {
+  border-top-color: #fff;
+}
+.nav-tabs {
+  border-bottom: 1px solid #666;
+  &> .active > a,
+  &> .active > a:hover {
+    background-color: $bg;
+    color: #fff;
+    border-color: #666 #666 transparent #666;
+  }
+  &> li > a:hover {
+    border-color: $bg $bg #666 $bg;
+    background-color: rgba(0, 0, 0, 0.25);
+    color: lighten($linkColor, 10%);
+  }
+  &.nav-stacked {
+    &> li > a,
+    &> li > a:hover {
+      border-color: #666;
+    }
+  }
+}
+.well > .nav-tabs {
+  &> .active > a,
+  &> .active > a:hover {
+    background-color: #202020;
+  }
+}
+
+.nav-pills {
+  &> li > a:hover {
+    //background-color: darken($bg, 5%);
+    background-color: rgba(0, 0, 0, 0.25);
+    color: lighten($linkColor, 10%);
+  }
+}
+.nav-list > li > a,
+.nav-list .nav-header {
+  text-shadow: 0 1px 0 #000;
+}
+.nav-list > li > a:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+  color: lighten($linkColor, 10%);
+}
+.nav-list .active {
+  &> a:hover {
+    background-color: #0088cc;
+    color: white;
+  }
+}
+
+.tabs-below .nav-tabs { border-top: 1px solid #666; }
+.tabs-left .nav-tabs { border-right: 1px solid #666; }
+.tabs-right .nav-tabs { border-left: 1px solid #666; }
+
+.tabs-below .nav-tabs > li > a:hover {
+  border-top: 1px solid #666;
+}
+.tabs-left .nav-tabs > li > a:hover {
+  border-color: transparent #666 transparent transparent;
+}
+.tabs-right .nav-tabs > li > a:hover {
+  border-color: transparent transparent transparent #666;
+}
+
+.tabs-below .nav-tabs .active > a,
+.tabs-below .nav-tabs .active > a:hover {
+  border-color: transparent #666 #666 #666;
+}
+.tabs-left .nav-tabs .active > a,
+.tabs-left .nav-tabs .active > a:hover {
+  border-color: #666 transparent #666 #666;
+}
+.tabs-right .nav-tabs .active > a,
+.tabs-right .nav-tabs .active > a:hover {
+  border-color: #666 #666 #666 transparent;
+}
+
+
+
+
+
+
+.nav-list > li > a,
+.nav-list .nav-header {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5); }
+
+.nav-tabs > li > a:hover {
+  border-color: transparent transparent #666 transparent;
+}
+.nav > .disabled > a:hover {
+  color: #999;
+}
+.nav-list .divider {
+  background-color: transparent;
+  @include horizontal-rule-dark;
+}
+
+
+//= Navbar
+//.navbar-inner {
+  //background-color: #363636;
+  ////background-image: linear-gradient(to bottom, #444444, #222222);
+  //background-image: linear-gradient(to bottom, #666, #444);
+  //background-repeat: repeat-x;
+  //border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  //color: white;
+  //text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+
+  //.brand {
+    //color: $textColor;
+  //text-shadow: 0 1px 0 black;
+  //}
+//}
+
+//.navbar .nav > li > a {
+  //color: $textColor;
+  //text-shadow: 0 1px 0 black;
+//}
+
+
+//.navbar .nav > li > a:focus,
+//.navbar .nav > li > a:hover {
+  //color: white;
+//}
+
+//.navbar .nav > .active > a,
+//.navbar .nav > .active > a:hover,
+//.navbar .nav > .active > a:focus {
+  //color: white;
+  ////background-color: #222;
+  //background-color: #444;
+  //-webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.5);
+  //-moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.5);
+  //box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.5); 
+//}
+.navbar .brand {
+  text-shadow: 0 1px 0 black;
+}
+
+.navbar .divider-vertical {
+  border: transparent;
+  @include vertical-rule-dark;
+}
+
+
+.navbar-inverse {
+  .brand {
+    color: #555;
+    text-shadow: 0 1px 0 #fff;
+    &:hover { 
+      color: #555;
+    }
+  }
+  .navbar-inner {
+    background: #fafafa;
+    border: 1px solid #030303;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+
+    // http://www.colorzilla.com/gradient-editor/
+    background: -moz-linear-gradient(top,  #ffffff 0%, #999999 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#999999));
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#999999 100%);
+    background: -o-linear-gradient(top,  #ffffff 0%,#999999 100%);
+    background: -ms-linear-gradient(top,  #ffffff 0%,#999999 100%);
+    background: linear-gradient(to bottom,  #ffffff 0%,#999999 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#999999',GradientType=0 );
+  }
+
+  .nav > li > a {
+    color: #555;
+    &:hover {
+      color: #333;
+    }
+  }
+
+  .nav > .active > a, 
+  .nav > .active > a:hover {
+    background-color: #e5e5e5;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125) inset;
+    color: #555555;
+  }
+
+  .nav li.dropdown.open > .dropdown-toggle,
+  .nav li.dropdown.active > .dropdown-toggle,
+  .nav li.dropdown.open.active > .dropdown-toggle {
+    background-color: #e5e5e5;
+    color: #555; 
+  }
+
+
+  .nav li.dropdown > a:hover .caret {
+    border-top-color: #555;
+    color: #555; 
+  }
+  
+  .nav > li > a:focus, 
+  .nav > li > a:hover {
+    background-color: transparent;
+    color: #333;
+  }
+
+  .nav li.dropdown.open > .dropdown-toggle, 
+  .nav li.dropdown.active > .dropdown-toggle,
+  .nav li.dropdown.open.active > .dropdown-toggle {
+    background-color: #e5e5e5;
+    color: #555;
+  }
+
+  .nav li.dropdown.open > .dropdown-toggle .caret,
+  .nav li.dropdown.active > .dropdown-toggle .caret,
+  .nav li.dropdown.open.active > .dropdown-toggle .caret {
+    border-bottom-color: #555;
+    border-top-color: #555;
+    color: #555;
+  }
+
+  .navbar-search { 
+    .search-query {
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.60) inset;
+      background-color: white;
+      color: #333;
+    }
+  }
+
+  .navbar-search {
+    input.search-query:focus {
+
+      //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.60) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.60) inset, 0 0 8px rgba(82, 168, 236, 0.9);
+      //box-shadow: 0 3px 8px rgba(0, 0, 0, 0.60) inset;
+      padding: 4px 14px;
+      outline: 0 none;
+    }
+  }
+  .nav li.dropdown > .dropdown-toggle .caret {
+    border-bottom-color: #555;
+    border-top-color: #555;
+  }
+  .nav li.dropdown > a:hover .caret {
+    border-bottom-color: #333;
+    border-top-color: #333;
+  }
+  .navbar-search .search-query:-moz-placeholder {
+    color: #999;
+  }
+
+}
+
+.pagination ul > li > a, 
+.pagination ul > li > span {
+  background: transparent;
+  border-color: #666;
+}
+.pagination ul > li > a:hover,
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+
+// PAGERRRRRRR
+
+.pager li > a, .pager li > span {
+  background-color: transparent;
+  border-color: #666;
+}
+.pager li > a:hover {
+  background-color: rgba(0, 0, 0, 0.25); 
+}
+.pager .disabled > a,
+.pager .disabled > a:hover,
+.pager .disabled > span {
+    background-color: transparent;
+}
+
+
+.label, 
+.badge {
+  text-shadow: 1px 1px 0 black;
+  box-shadow: 1px 1px 0 black;
+}
+.label-inverse,
+.badge-inverse{
+  background-color: #111;
+}
+
+.hero-unit {
+  background: #111;
+  color: #ccc;
+  @extend .darkwell;
+}
+
+.thumbnail {
+  border-color: #666;
+  box-shadow: 0 1px 3px black;
+  .caption {
+    color: #999;
+  }
+}
+
+.alert {
+  color: white;
+  border-color: #a86404;
+  text-shadow:  0 1px 0 rgba(0, 0, 0, 0.25);
+  h1,h2,h3,h4,h5,h6 {
+    color: #c17305;
+  }
+}
+.alert-error {
+  border-color: #d40408;
+  h1,h2,h3,h4,h5,h6 {
+    color: #ed0409;
+  }
+}
+.alert-success {
+  border-color: #2d662d;
+  h1,h2,h3,h4,h5,h6 {
+    color: #347834;
+  }
+}
+.alert-info {
+  border-color: #1a3c4e;
+  h1,h2,h3,h4,h5,h6 {
+    color: #204B61;
+  }
+}
+
+.progress {
+  @extend .darkwell;
+}
+
+//http://stackoverflow.com/questions/7855590/how-can-i-prevent-scroll-bars-from-being-hidden-for-trackpad-users-in-webkit
+// Make scrollbar stand out in Webkit by manually overriding it.
+select {
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 11px;
+    //height: 11px;
+  }
+  &::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      border: 2px solid #202020; /* should match background, can't be transparent */
+      background-color: rgba(0, 0, 0, .5);
+  }
+}
+
+.modal {
+  background-color: #444;
+}
+.modal-header {
+  border-bottom: 1px solid #222;
+}
+.modal-body p {
+  color: #c6c6c6;
+}
+.modal-footer {
+  background-color: #373737;
+  border-top: 1px solid #222;
+  -moz-box-shadow: 0 1px 0 #333333 inset;
+  -webkit-box-shadow: 0 1px 0 #333333 inset;
+  -o-box-shadow: 0 1px 0 #333333 inset;
+  box-shadow: 0 1px 0 #333333 inset;
+}
+.popover {
+  background: #444;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 1.0);
+}
+.popover-title {
+  background: #373737;
+  border-bottom-color: #222;
+}
+.popover.top .arrow:after {
+  border-top-color: #444;
+}
+.popover.right .arrow:after {
+  border-right-color: #444;
+}
+.popover.bottom .arrow:after {
+  border-bottom-color: #444;
+}
+.popover.left .arrow:after {
+  border-left-color: #444;
+}
