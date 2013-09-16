@@ -1,0 +1,45 @@
+#content {
+  margin-top: 50px; }
+
+form.well,
+.shift-up {
+  margin-top: -19px; }
+
+.col-lg-6 > .well {
+  margin-top: -19px; }
+
+.ds-margin-top, h2 {
+  margin-top: 50px; }
+
+.popovers .popover {
+  display: block;
+  float: left;
+  margin: 20px;
+  position: relative;
+  width: 260px;
+}
+
+form.form-inline > .form-group > input {
+	width: 100px;
+}
+
+.modal {
+  position: relative;
+  top: auto;
+  right: auto;
+  left: auto;
+  bottom: auto;
+  z-index: 1;
+  display: inline;
+}
+
+.bs-example {
+  position: relative;
+  padding: 45px 15px 15px;
+  margin: 0 -15px 15px;
+  background-color: #2f2f2f;
+}
+
+.bs-example-modal {
+  background-color: #2f2f2f;
+}
