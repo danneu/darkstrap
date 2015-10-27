@@ -1,3 +1,9 @@
+/* 
+ * Darkstrap v0.9.2
+ * By danneu (http://github.com/danneu/darkstrap)
+ * Based off Twitter Bootstrap v3.3.5
+ */
+
 @import "compass";
 $bg:                    #2f2f2f;
 $warning:               #faa732;
@@ -25,9 +31,6 @@ $successBackground:     $success;
 $errorBackground:       $error;
 $infoBackground:        $info;
 
-$iconSpritePath: "../img/glyphicons-halflings.png";
-$iconWhiteSpritePath: "../img/glyphicons-halflings-white.png";
-
 $navbarBackground: #222;
 $navbarBackgroundHighlight: #444;
 $navbarText: $textColor;
@@ -40,19 +43,6 @@ $navbarLinkColorActive: white;
 $placeholderText: #666;
 $inputBackground: #ccc;
 $formActionsBackground: #444;
-
-// Bootstrap Sass variable overrides
-//$warningBorder: $warningBackground; 
-//$successBorder: $successBackground;
-//$errorBorder: $errorBackground;
-//$infoBorder: $infoBackground;
-
-tr.warning,
-tr.success,
-tr.error,
-tr.info {
-  color: #fff;
-}
 
 @mixin placeholder($color: $ds_inputPlaceholder) {
   :-moz-placeholder {
@@ -103,7 +93,14 @@ border-right: 1px solid #121212; }
 border-left: 1px solid #121212; }
 //=========================================
 
-@import "bootstrap-v2.2.2";
+// Import Bootstrap Compass integration
+@import "bootstrap-compass";
+
+// Import custom Bootstrap variables
+@import "bootstrap-variables";
+
+// Import Bootstrap for Sass
+@import "bootstrap";
 
 .well { 
   @include inset-panel-dark; 
@@ -169,13 +166,16 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"],
-.uneditable-input {
+.uneditable-input,
+.form-control {
   color: $ds_inputColor;
   @extend .darkwell;
   @include placeholder;
-  // Default: 20px. Need to compensate for the inset look so that it lines up with pre/appended elements.
-  // TODO: 21px if pre/appended with a span, 22px if pre/appended with button.
-  height: 21px 
+  height: 34px 
+}
+
+.form-control.input-lg {
+  height: 45px;
 }
 
 textarea { // TODO: DRY me up.
@@ -186,14 +186,6 @@ textarea { // TODO: DRY me up.
 
 // Need to compensate for inset + 4px padding.
 select { height: 29px; }
-
-.input-prepend .add-on,
-.input-append .add-on {
-  background: #444;
-  color: $textColor;
-  border-color: #111;
-  text-shadow: 0 1px 0 black;
-}
 
 .form-actions {
   border-top-color: #222;
@@ -210,6 +202,14 @@ select { height: 29px; }
 .help-block { 
   color: #999;
 }
+
+tr.warning,
+tr.success,
+tr.error,
+tr.info {
+  color: #fff;
+}
+
 .control-group {
   &.warning { @include controls($warning); }
   &.success { @include controls($success); }
@@ -221,9 +221,9 @@ select { height: 29px; }
 input:focus:invalid,
 textarea:focus:invalid,
 select:focus:invalid {
-  //color: #b94a48;
   border-color: $error; 
 }
+
 input:focus:invalid:focus,
 textarea:focus:invalid:focus,
 select:focus:invalid:focus {
@@ -233,9 +233,6 @@ select:focus:invalid:focus {
 
 .btn-link {
   text-shadow: none;
-  //&:hover {
-    
-  //}
 }
 
 .img-polaroid {
@@ -265,8 +262,9 @@ select:focus:invalid:focus {
 }
 .nav-tabs {
   border-bottom: 1px solid #666;
-  &> .active > a,
-  &> .active > a:hover {
+  &> li.active > a,
+  &> li.active > a:hover,
+  &> li.active > a:focus {
     background-color: $bg;
     color: #fff;
     border-color: #666 #666 transparent #666;
@@ -361,47 +359,11 @@ select:focus:invalid:focus {
 
 
 //= Navbar
-//.navbar-inner {
-  //background-color: #363636;
-  ////background-image: linear-gradient(to bottom, #444444, #222222);
-  //background-image: linear-gradient(to bottom, #666, #444);
-  //background-repeat: repeat-x;
-  //border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  //color: white;
-  //text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-
-  //.brand {
-    //color: $textColor;
-  //text-shadow: 0 1px 0 black;
-  //}
-//}
-
-//.navbar .nav > li > a {
-  //color: $textColor;
-  //text-shadow: 0 1px 0 black;
-//}
-
-
-//.navbar .nav > li > a:focus,
-//.navbar .nav > li > a:hover {
-  //color: white;
-//}
-
-//.navbar .nav > .active > a,
-//.navbar .nav > .active > a:hover,
-//.navbar .nav > .active > a:focus {
-  //color: white;
-  ////background-color: #222;
-  //background-color: #444;
-  //-webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.5);
-  //-moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.5);
-  //box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.5); 
-//}
 .navbar .brand {
   text-shadow: 0 1px 0 black;
 }
 
-.navbar .divider-vertical {
+.navbar .nav-divider {
   border: transparent;
   @include vertical-rule-dark;
 }
@@ -410,24 +372,13 @@ select:focus:invalid:focus {
 .navbar-inverse {
   .brand {
     color: #555;
-    text-shadow: 0 1px 0 #fff;
     &:hover { 
       color: #555;
     }
   }
-  .navbar-inner {
-    background: #fafafa;
-    border: 1px solid #030303;
+  .navbar-default {
+    background: #333333;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-
-    // http://www.colorzilla.com/gradient-editor/
-    background: -moz-linear-gradient(top,  #ffffff 0%, #999999 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#999999));
-    background: -webkit-linear-gradient(top,  #ffffff 0%,#999999 100%);
-    background: -o-linear-gradient(top,  #ffffff 0%,#999999 100%);
-    background: -ms-linear-gradient(top,  #ffffff 0%,#999999 100%);
-    background: linear-gradient(to bottom,  #ffffff 0%,#999999 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#999999',GradientType=0 );
   }
 
   .nav > li > a {
@@ -511,14 +462,14 @@ select:focus:invalid:focus {
 
 }
 
-.pagination ul > li > a, 
-.pagination ul > li > span {
+.pagination > li > a, 
+.pagination > li > span {
   background: transparent;
   border-color: #666;
 }
-.pagination ul > li > a:hover,
-.pagination ul > .active > a,
-.pagination ul > .active > span {
+.pagination > li > a:hover,
+.pagination > .active > a,
+.pagination > .active > span {
   background-color: rgba(0, 0, 0, 0.25);
 }
 
@@ -549,15 +500,39 @@ select:focus:invalid:focus {
   background-color: #111;
 }
 
-.hero-unit {
+.btn-inverse {
+  background-color: #363636;
+}
+
+.btn-inverse,
+.btn-inverse:hover {
+  color: #C6C6C6;
+}
+
+a.list-group-item.active > .badge,
+.nav-pills > .active > a > .badge {
+  color: #fff;
+  background-color: #2f2f2f;
+}
+
+.jumbotron {
   background: #111;
   color: #ccc;
   @extend .darkwell;
 }
 
 .thumbnail {
-  border-color: #666;
-  box-shadow: 0 1px 3px black;
+  display: inline-block;
+  display: block;
+  height: auto;
+  max-width: 100%;
+  padding: 4px;
+  line-height: 1.428571429;
+  background-color: #333333;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
   .caption {
     color: #999;
   }
@@ -566,7 +541,6 @@ select:focus:invalid:focus {
 .alert {
   color: white;
   border-color: #a86404;
-  text-shadow:  0 1px 0 rgba(0, 0, 0, 0.25);
   h1,h2,h3,h4,h5,h6 {
     color: #c17305;
   }
@@ -594,7 +568,7 @@ select:focus:invalid:focus {
   @extend .darkwell;
 }
 
-//http://stackoverflow.com/questions/7855590/how-can-i-prevent-scroll-bars-from-being-hidden-for-trackpad-users-in-webkit
+// http://stackoverflow.com/questions/7855590/how-can-i-prevent-scroll-bars-from-being-hidden-for-trackpad-users-in-webkit
 // Make scrollbar stand out in Webkit by manually overriding it.
 select {
   &::-webkit-scrollbar {
@@ -609,15 +583,19 @@ select {
   }
 }
 
-.modal {
+.modal,
+.modal-content {
   background-color: #444;
 }
+
 .modal-header {
   border-bottom: 1px solid #222;
 }
+
 .modal-body p {
   color: #c6c6c6;
 }
+
 .modal-footer {
   background-color: #373737;
   border-top: 1px solid #222;
