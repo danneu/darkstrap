@@ -10,19 +10,28 @@ $warning:               #faa732;
 $success:               #5bb75b;
 $error:                 #fc5b5e;
 $info:                  #3a87ad;
+$warningAccent:         #c17305;
+$successAccent:         #347834;
+$errorAccent:           #ed0409;
+$infoAccent:            #1a3c4e;
+$warningBorder:         #a86404;
+$successBorder:         #2d662d;
+$errorBorder:           #d40408;
+$infoBorder:            #204b61;
 
-$ds_inputBackground: #666; // ds default: #444
-$ds_inputBorder: #111; // default: white
-$ds_inputPlaceholder: #666;
-$ds_inputColor: #fff;
+$ds_inputBackground:    #666; // ds default: #444
+$ds_inputBorder:        #111; // default: white
+$ds_inputPlaceholder:   #666;
+$ds_inputColor:         #fff;
+$ds_textColor:          #555;
+$ds_textBackground:     #373737;
 
-// Bootstrap variables
-$bodyBackground:        $bg; 
-$textColor:             #c6c6c6; 
-$linkColor: #08c;
-$linkColorHover: lighten($linkColor, 15%);
+$body-bg:               $bg;
+$text-color:            #c6c6c6;
+$link-color:            #08c;
+$link-hover-color:      lighten($link-color, 15%);
 
-$tableBorder:           #666; 
+$tableBorder:           #666;
 $tableBackgroundAccent: #444;
 $tableBackgroundHover:  #666;
 
@@ -31,17 +40,17 @@ $successBackground:     $success;
 $errorBackground:       $error;
 $infoBackground:        $info;
 
-$navbarBackground: #222;
+$navbarBackground:          #222;
 $navbarBackgroundHighlight: #444;
-$navbarText: $textColor;
-$navbarBrandColor: $textColor;
-$navbarLinkColor: $textColor;
-$navbarLinkColorHover: white;
-$navbarLinkColorActive: white;
+$navbarText:                $text-color;
+$navbarBrandColor:          $text-color;
+$navbarLinkColor:           $text-color;
+$navbarLinkColorHover:      #fff;
+$navbarLinkColorActive:     #fff;
 
 // Forms
-$placeholderText: #666;
-$inputBackground: #ccc;
+$placeholderText:       #666;
+$inputBackground:       #ccc;
 $formActionsBackground: #444;
 
 @mixin placeholder($color: $ds_inputPlaceholder) {
@@ -119,7 +128,7 @@ border-left: 1px solid #121212; }
 }
 //=Headings ======================================
 .page-header { @include horizontal-rule-dark; }
-h1,h2,h3,h4,h5,h6 { color: white; }
+h1,h2,h3,h4,h5,h6 { color: $ds_inputColor; }
 h6 { color: #999; }
 
 //=Misc ========================================
@@ -141,7 +150,7 @@ code {
 pre {
   @extend .darkwell;
   border: none; //over bs
-  color: $textColor;
+  color: $text-color;
   padding: 8px; //added. i think my .well is stomping on bootstrap-sass mixin.
 }
 
@@ -178,7 +187,7 @@ input[type="color"],
   height: 45px;
 }
 
-textarea { // TODO: DRY me up.
+textarea {
   color: $ds_inputColor;
   @extend .darkwell;
   @include placeholder;
@@ -188,7 +197,7 @@ textarea { // TODO: DRY me up.
 select { height: 29px; }
 
 .form-actions {
-  border-top-color: #222;
+  border-top-color: $navbarBackground;
 }
 .well .form-actions {
   border-top-color: #000;
@@ -251,7 +260,7 @@ select:focus:invalid:focus {
 .nav > .open.active > a:hover {
   background-color: rgba(0, 0, 0, 0.25);
   //border-color: $bg $bg transparent $bg;
-  border-color: transparent transparent #666 transparent;
+  border-color: transparent transparent $tableBorder transparent;
 }
 .nav > .dropdown.active > a:hover {
   color: #fff;
@@ -261,23 +270,23 @@ select:focus:invalid:focus {
   border-top-color: #fff;
 }
 .nav-tabs {
-  border-bottom: 1px solid #666;
+  border-bottom: 1px solid $tableBorder;
   &> li.active > a,
   &> li.active > a:hover,
   &> li.active > a:focus {
     background-color: $bg;
     color: #fff;
-    border-color: #666 #666 transparent #666;
+    border-color: $tableBorder $tableBorder transparent $tableBorder;
   }
   &> li > a:hover {
-    border-color: $bg $bg #666 $bg;
+    border-color: $bg $bg $tableBorder $bg;
     background-color: rgba(0, 0, 0, 0.25);
-    color: lighten($linkColor, 10%);
+    color: lighten($link-color, 10%);
   }
   &.nav-stacked {
     &> li > a,
     &> li > a:hover {
-      border-color: #666;
+      border-color: $tableBorder;
     }
   }
 }
@@ -292,7 +301,7 @@ select:focus:invalid:focus {
   &> li > a:hover {
     //background-color: darken($bg, 5%);
     background-color: rgba(0, 0, 0, 0.25);
-    color: lighten($linkColor, 10%);
+    color: lighten($link-color, 10%);
   }
 }
 .nav-list > li > a,
@@ -301,40 +310,40 @@ select:focus:invalid:focus {
 }
 .nav-list > li > a:hover {
   background-color: rgba(0, 0, 0, 0.25);
-  color: lighten($linkColor, 10%);
+  color: lighten($link-color, 10%);
 }
 .nav-list .active {
   &> a:hover {
     background-color: #0088cc;
-    color: white;
+    color: $ds_inputColor;
   }
 }
 
-.tabs-below .nav-tabs { border-top: 1px solid #666; }
-.tabs-left .nav-tabs { border-right: 1px solid #666; }
-.tabs-right .nav-tabs { border-left: 1px solid #666; }
+.tabs-below .nav-tabs { border-top: 1px solid $tableBorder; }
+.tabs-left .nav-tabs { border-right: 1px solid $tableBorder; }
+.tabs-right .nav-tabs { border-left: 1px solid $tableBorder; }
 
 .tabs-below .nav-tabs > li > a:hover {
-  border-top: 1px solid #666;
+  border-top: 1px solid $tableBorder;
 }
 .tabs-left .nav-tabs > li > a:hover {
-  border-color: transparent #666 transparent transparent;
+  border-color: transparent $tableBorder transparent transparent;
 }
 .tabs-right .nav-tabs > li > a:hover {
-  border-color: transparent transparent transparent #666;
+  border-color: transparent transparent transparent $tableBorder;
 }
 
 .tabs-below .nav-tabs .active > a,
 .tabs-below .nav-tabs .active > a:hover {
-  border-color: transparent #666 #666 #666;
+  border-color: transparent $tableBorder $tableBorder $tableBorder;
 }
 .tabs-left .nav-tabs .active > a,
 .tabs-left .nav-tabs .active > a:hover {
-  border-color: #666 transparent #666 #666;
+  border-color: $tableBorder transparent $tableBorder $tableBorder;
 }
 .tabs-right .nav-tabs .active > a,
 .tabs-right .nav-tabs .active > a:hover {
-  border-color: #666 #666 #666 transparent;
+  border-color: $tableBorder $tableBorder $tableBorder transparent;
 }
 
 
@@ -347,7 +356,7 @@ select:focus:invalid:focus {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5); }
 
 .nav-tabs > li > a:hover {
-  border-color: transparent transparent #666 transparent;
+  border-color: transparent transparent $tableBorder transparent;
 }
 .nav > .disabled > a:hover {
   color: #999;
@@ -371,20 +380,20 @@ select:focus:invalid:focus {
 
 .navbar-inverse {
   .brand {
-    color: #555;
+    color: $ds_textColor;
     &:hover { 
-      color: #555;
+      color: $ds_textColor;
     }
   }
   .navbar-default {
-    background: #333333;
+    background: #333;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
   }
 
   .nav > li > a {
-    color: #555;
+    color: $navbarText;
     &:hover {
-      color: #333;
+      color: $navbarLinkColorHover;
     }
   }
 
@@ -392,80 +401,76 @@ select:focus:invalid:focus {
   .nav > .active > a:hover {
     background-color: #e5e5e5;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125) inset;
-    color: #555555;
+    color: $ds_textColor;
+  }
+
+  .nav li.dropdown > a:hover .caret {
+    border-bottom-color: $navbarLinkColorHover;
+    border-top-color: $navbarLinkColorHover;
+    color: $navbarLinkColorHover;
+  }
+  
+  .nav > li > a:focus, 
+  .nav > li > a:hover {
+    background-color: transparent;
+    color: $navbarLinkColorHover;
   }
 
   .nav li.dropdown.open > .dropdown-toggle,
   .nav li.dropdown.active > .dropdown-toggle,
   .nav li.dropdown.open.active > .dropdown-toggle {
     background-color: #e5e5e5;
-    color: #555; 
+    color: $ds_textColor; 
   }
 
-
-  .nav li.dropdown > a:hover .caret {
-    border-top-color: #555;
-    color: #555; 
-  }
-  
-  .nav > li > a:focus, 
-  .nav > li > a:hover {
-    background-color: transparent;
-    color: #333;
-  }
 
   .nav li.dropdown.open > .dropdown-toggle, 
   .nav li.dropdown.active > .dropdown-toggle,
   .nav li.dropdown.open.active > .dropdown-toggle {
     background-color: #e5e5e5;
-    color: #555;
+    color: $ds_textColor;
   }
 
   .nav li.dropdown.open > .dropdown-toggle .caret,
   .nav li.dropdown.active > .dropdown-toggle .caret,
   .nav li.dropdown.open.active > .dropdown-toggle .caret {
-    border-bottom-color: #555;
-    border-top-color: #555;
-    color: #555;
+    border-bottom-color: $text-color;
+    border-top-color: $text-color;
+    color: $text-color;
   }
 
   .navbar-search { 
     .search-query {
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.60) inset;
-      background-color: white;
-      color: #333;
+      background-color: $ds_inputColor;
+      color: $ds_textColor;
     }
   }
 
   .navbar-search {
     input.search-query:focus {
-
-      //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.60) inset, 0 0 8px rgba(82, 168, 236, 0.6);
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.60) inset, 0 0 8px rgba(82, 168, 236, 0.9);
-      //box-shadow: 0 3px 8px rgba(0, 0, 0, 0.60) inset;
       padding: 4px 14px;
       outline: 0 none;
     }
   }
   .nav li.dropdown > .dropdown-toggle .caret {
-    border-bottom-color: #555;
-    border-top-color: #555;
+    border-bottom-color: $text-color;
+    border-top-color: $text-color;
   }
   .nav li.dropdown > a:hover .caret {
-    border-bottom-color: #333;
-    border-top-color: #333;
+    border-bottom-color: $navbarLinkColorHover;
+    border-top-color: $navbarLinkColorHover;
   }
   .navbar-search .search-query:-moz-placeholder {
     color: #999;
   }
-
 }
 
 .pagination > li > a, 
 .pagination > li > span {
   background: transparent;
-  border-color: #666;
+  border-color: $tableBorder;
 }
 .pagination > li > a:hover,
 .pagination > .active > a,
@@ -478,7 +483,7 @@ select:focus:invalid:focus {
 
 .pager li > a, .pager li > span {
   background-color: transparent;
-  border-color: #666;
+  border-color: $tableBorder;
 }
 .pager li > a:hover {
   background-color: rgba(0, 0, 0, 0.25); 
@@ -501,7 +506,7 @@ select:focus:invalid:focus {
 }
 
 .btn-inverse {
-  background-color: #363636;
+  background-color: $ds_textBackground;
 }
 
 .btn-inverse,
@@ -539,28 +544,28 @@ a.list-group-item.active > .badge,
 }
 
 .alert {
-  color: white;
-  border-color: #a86404;
+  color: $ds_inputColor;
+  border-color: $warningBorder;
   h1,h2,h3,h4,h5,h6 {
-    color: #c17305;
+    color: $warningAccent;
   }
 }
 .alert-error {
-  border-color: #d40408;
+  border-color: $errorBorder;
   h1,h2,h3,h4,h5,h6 {
-    color: #ed0409;
+    color: $errorAccent;
   }
 }
 .alert-success {
-  border-color: #2d662d;
+  border-color: $successBorder;
   h1,h2,h3,h4,h5,h6 {
-    color: #347834;
+    color: $successAccent;
   }
 }
 .alert-info {
-  border-color: #1a3c4e;
+  border-color: $infoAccent;
   h1,h2,h3,h4,h5,h6 {
-    color: #204B61;
+    color: $infoBorder;
   }
 }
 
@@ -585,7 +590,7 @@ select {
 
 .modal,
 .modal-content {
-  background-color: #444;
+  background-color: $navbarBackgroundHighlight;
 }
 
 .modal-header {
@@ -597,7 +602,7 @@ select {
 }
 
 .modal-footer {
-  background-color: #373737;
+  background-color: $ds_textBackground;
   border-top: 1px solid #222;
   -moz-box-shadow: 0 1px 0 #333333 inset;
   -webkit-box-shadow: 0 1px 0 #333333 inset;
@@ -605,23 +610,78 @@ select {
   box-shadow: 0 1px 0 #333333 inset;
 }
 .popover {
-  background: #444;
+  background: $navbarBackgroundHighlight;
   border: 1px solid rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(0, 0, 0, 1.0);
 }
 .popover-title {
-  background: #373737;
+  background: $ds_textBackground;
   border-bottom-color: #222;
 }
 .popover.top .arrow:after {
-  border-top-color: #444;
+  border-top-color: $navbarBackgroundHighlight;
 }
 .popover.right .arrow:after {
-  border-right-color: #444;
+  border-right-color: $navbarBackgroundHighlight;
 }
 .popover.bottom .arrow:after {
-  border-bottom-color: #444;
+  border-bottom-color: $navbarBackgroundHighlight;
 }
 .popover.left .arrow:after {
-  border-left-color: #444;
+  border-left-color: $navbarBackgroundHighlight;
+}
+
+// supporting bootstrap theme
+
+.dropdown-menu,
+.dropdown-menu > li > a {
+  color: $text-color;
+  background: $ds_textBackground;
+}
+
+.dropdown-menu > li > a:focus,
+.dropdown-menu > li > a:hover {
+  color: $ds_inputColor;
+  background-image:-webkit-linear-gradient(top,#080808 0,#0f0f0f 100%);
+  background-image:-o-linear-gradient(top,#080808 0,#0f0f0f 100%);
+  background-image:-webkit-gradient(linear,left top,left bottom,from(#080808),to(#0f0f0f));
+  background-image:linear-gradient(to bottom,#080808 0,#0f0f0f 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff080808', endColorstr='#ff0f0f0f', GradientType=0);filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat:repeat-x;
+}
+
+.alert {
+  background-image:-webkit-linear-gradient(top, $warning 0, $warningAccent 100%);
+  background-image:-o-linear-gradient(top, $warning 0, $warningAccent 100%);
+  background-image:-webkit-gradient(linear, left top,left bottom,from($warning),to($warningAccent));
+  background-image:linear-gradient(to bottom, $warning 0, $warningAccent 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3a87ad', endColorstr='#ff1a3c4e', GradientType=0);filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat:repeat-x;
+}
+
+.alert-error {
+  background-image:-webkit-linear-gradient(top, $error 0, $errorBorder 100%);
+  background-image:-o-linear-gradient(top, $error 0, $errorBorder 100%);
+  background-image:-webkit-gradient(linear, left top,left bottom,from($error),to($errorBorder));
+  background-image:linear-gradient(to bottom, $error 0, $errorBorder 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3a87ad', endColorstr='#ff1a3c4e', GradientType=0);filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat:repeat-x;
+}
+
+.alert-success {
+  background-image:-webkit-linear-gradient(top, $success 0, $successBorder 100%);
+  background-image:-o-linear-gradient(top, $success 0, $successBorder 100%);
+  background-image:-webkit-gradient(linear, left top,left bottom,from($success),to($successBorder));
+  background-image:linear-gradient(to bottom, $success 0, $successBorder 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3a87ad', endColorstr='#ff1a3c4e', GradientType=0);filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat:repeat-x;
+}
+
+.alert-info {
+  background-image:-webkit-linear-gradient(top, $info 0, $infoAccent 100%);
+  background-image:-o-linear-gradient(top, $info 0, $infoAccent 100%);
+  background-image:-webkit-gradient(linear, left top,left bottom,from($info),to($infoAccent));
+  background-image:linear-gradient(to bottom, $info 0, $infoAccent 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3a87ad', endColorstr='#ff1a3c4e', GradientType=0);filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat:repeat-x;
 }
