@@ -1,0 +1,9 @@
+#!/bin/sh
+cd $(dirname $0)
+cp ../darkstrap.scss darkstrap.scss
+/usr/local/bin/compass compile darkstrap.scss && \
+cp darkstrap.css ../darkstrap.css
+cp -R fonts ../
+
+/usr/local/bin/compass compile --force --output-style compressed darkstrap.scss && \
+perl -0777 -pe 's{/\*.*?\*/}{}gs' darkstrap.css > ../darkstrap.min.css
